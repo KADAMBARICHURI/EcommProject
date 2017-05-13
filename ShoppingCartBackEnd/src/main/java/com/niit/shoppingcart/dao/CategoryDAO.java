@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import com.niit.shoppingcart.domain.Category;
 
-@Repository
 public interface CategoryDAO {
 	
 	//declare the methods

@@ -1,32 +1,36 @@
 package com.niit.shoppingcart.daoimpl;
 
 import java.util.List;
-import javax.transaction.Transactional;
+ 
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingcart.dao.UserDAO;
 import com.niit.shoppingcart.domain.User;
 
 
 @Repository("userDAO") @Transactional
- 
+
 public class UserDAOImpl implements UserDAO {
-	
+	Logger log = LoggerFactory.getLogger(UserDAOImpl.class); 	
 	@Autowired
 	private SessionFactory sessionFactory;
 	private Session s;
-	
+
 	
 	//write user defined constructor with one parameter i.e., sessionFactory
 	
 	public UserDAOImpl(SessionFactory sessionFactory)
 	{
+		log.debug("instantiating userdaoimp");
 		this.sessionFactory = sessionFactory;
 		 
 	}

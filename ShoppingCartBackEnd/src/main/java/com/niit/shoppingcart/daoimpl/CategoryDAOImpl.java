@@ -2,26 +2,29 @@ package com.niit.shoppingcart.daoimpl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingcart.dao.CategoryDAO;
 import com.niit.shoppingcart.domain.Category;
 
 
 
-@Repository("categoryDAO")
+@Repository(value="categoryDAO")
 @Transactional
+
 public class CategoryDAOImpl implements CategoryDAO {
 	
 	
-	@Autowired
+	@Autowired 
 	private SessionFactory sessionFactory;
 	private Session s;
+	
 	
 	
 	//write user defined constructor with one parameter i.e., sessionFactory
@@ -29,8 +32,11 @@ public class CategoryDAOImpl implements CategoryDAO {
 	public CategoryDAOImpl(SessionFactory sessionFactory)
 	{
 		this.sessionFactory = sessionFactory;
+		System.out.println("category dao bean created");
 	}
 	
+	
+	public CategoryDAOImpl(){System.out.println("category dao bean created");}
 	/**
 	 * This save method create record in the User table.
 	 * If the record is created successfully, it will return true
@@ -47,6 +53,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 			return false;
 		}
 		return true;*/
+		
+	      
+
 		Transaction tx=null;
 		Session s;
 		try
@@ -66,6 +75,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		}
 		s.close();
 		return true;
+		
 		
 	}
 	/**

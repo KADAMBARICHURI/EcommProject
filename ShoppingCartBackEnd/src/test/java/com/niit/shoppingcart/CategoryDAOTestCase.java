@@ -41,10 +41,10 @@ public class CategoryDAOTestCase {
 		
 	}
 	
-	@Test
+	//@Test
 	public void createUserTestCase()
 	{
-		category.setId("100202");
+		category.setId("100290");
 		category.setName("Sandals");
 		category.setDescription("All types of sandals are available");
 		boolean flag =  categoryDAO.save(category);
@@ -58,12 +58,12 @@ public class CategoryDAOTestCase {
 	}
 	
 	
-	//@Test
+	@Test
 	public void updateUserTestCase()
 	{
-		category.setId("100201");
-		category.setName("Jewellery");
-		category.setDescription("All types of Jewellery are available");
+		category.setId("100200");
+		category.setName("clothes");
+		category.setDescription("All types of clothes are available");
 		
 		boolean flag =  categoryDAO.update(category);
 	

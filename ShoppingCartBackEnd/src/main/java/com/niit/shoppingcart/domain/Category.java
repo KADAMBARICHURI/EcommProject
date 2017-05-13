@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 import org.springframework.stereotype.Component;
+
 
 @Entity   // to map the data base table
 @Table(name ="Category")  //if the table name and domain class name is different
@@ -25,8 +25,9 @@ public class Category {
 		                   // Otherwise no need specify
 	private String name;
 	
-	private String Description;
+	private String description;
 	
+
 	
 	public String getId() {
 		return id;
@@ -45,11 +46,11 @@ public class Category {
 	}
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 
 	

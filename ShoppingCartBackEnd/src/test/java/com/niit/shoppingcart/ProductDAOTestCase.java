@@ -41,7 +41,7 @@ public class ProductDAOTestCase {
 		
 	}
 	
-	@Test
+	//@Test
 	public void createUserTestCase()
 	{
 		product.setId("203");
@@ -62,12 +62,12 @@ public class ProductDAOTestCase {
 	}
 	
 	
-	//@Test
+	@Test
 	public void updateUserTestCase()
 	{
-		product.setId("kadambari");
-		product.setName("Kadambari churi");
-		product.setDescription("kadambari");
+		product.setId("kaduuu");
+		product.setName("Kadambari");
+		product.setDescription("she is a student");
 		product.setPrice("ROLE_USER");
 		product.setCategoryID("8778787979");
 		product.setSupplierID("555");
@@ -89,7 +89,7 @@ public class ProductDAOTestCase {
 		boolean flag =  productDAO.validate("suresh", "sureshhh", null, null, null, null);
 		
 		
-		assertEquals(true, flag);
+		assertEquals(false, flag);
 		
 	}
 	

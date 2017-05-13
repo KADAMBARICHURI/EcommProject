@@ -41,29 +41,29 @@ public class SupplierDAOTestCase {
 		
 	}
 	
-	@Test
+	//@Test
 	public void createUserTestCase()
 	{
-		supplier.setId("506");
-		supplier.setName("sham");
-		supplier.setAddress("hfdsbfngsghj");
+		supplier.setId("509");
+		supplier.setName("vanam");
+		supplier.setAddress("hfdsbfng");
 		boolean flag =  supplierDAO.save(supplier);
 	
 
 		//error - if there is in runtime errors  -  Red mark
 		//success  - if expected and actual is same  - green mark
 		//fail  - if expected and actual is different  -  blue mark
-		assertEquals("createUser TestCase  abcd",false,flag);
+		assertEquals("createUser TestCase  abcd",true,flag);
 		
 	}
 	
 	
-	//@Test
+	@Test
 	public void updateUserTestCase()
 	{
-		supplier.setId("kadambari");
-		supplier.setName("suresh churi");
-		supplier.setAddress("suresh");
+		supplier.setId("400");
+		supplier.setName("suresh ");
+		supplier.setAddress("vgdcvm");
 		boolean flag =  supplierDAO.update(supplier);
 	
 
@@ -81,7 +81,7 @@ public class SupplierDAOTestCase {
 		boolean flag =  supplierDAO.validate("suresh", "sureshhh", null);
 		
 		
-		assertEquals(true, flag);
+		assertEquals(false, flag);
 		
 	}
 	

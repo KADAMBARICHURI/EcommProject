@@ -5,8 +5,9 @@ import java.util.Properties;
 import javax.sql.DataSource;
 import javax.transaction.Transactional;
 
-
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
-
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.shoppingcart.domain.Category;
 //import com.niit.shoppingcart.domain.MyCart;
@@ -24,13 +25,11 @@ import com.niit.shoppingcart.domain.User;
 
 
 @Configuration
-@ComponentScan("com.niit")
-@Transactional
-
-
- 
+@ComponentScan("com.niit.shoppingcart")
+@org.springframework.transaction.annotation.Transactional
 public class ApplicationContextConfig {
 
+	Logger log = LoggerFactory.getLogger(ApplicationContextConfig.class);
 	@Bean(name = "dataSource")
 	public DataSource getH2DataSource() {
 		
@@ -44,6 +43,7 @@ public class ApplicationContextConfig {
 		dataSource.setUsername("niit");
 		dataSource.setPassword("niit");
 		
+		System.out.println("Data Source Bean Created");
 		
 		return dataSource;
 	}
@@ -64,7 +64,7 @@ public class ApplicationContextConfig {
 
 	@Autowired
 	@Bean(name = "sessionFactory")
-	public SessionFactory getSessionFactory(DataSource dataSource) {
+	public SessionFactory getMySessionFactory(DataSource dataSource) {
 
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
@@ -73,8 +73,9 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClasses(Category.class);
 		sessionBuilder.addAnnotatedClasses(Product.class);
 		//sessionBuilder.addAnnotatedClasses(MyCart.class);
-		sessionBuilder.scanPackages("com.niit");
-	
+		sessionBuilder.scanPackages("com.niit.shoppingcart.domain");
+		System.out.println("sessionFactory created");
+		log.info("creating bean session factory");
 		return sessionBuilder.buildSessionFactory();
 	}
 
@@ -88,4 +89,6 @@ public class ApplicationContextConfig {
 
 	
 
-}
+}//do the same steps----clean install -DskipTests - back end
+//then front end.....give a mail if you get  exception...
+//check-in the latest code and give git-hub url + error descriptioh.. OK ok sir thank you

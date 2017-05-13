@@ -42,48 +42,48 @@ public class Product {
 
 	
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 
 
 	public String getPrice() {
-		return Price;
+		return price;
 	}
 
 	public void setPrice(String price) {
-		Price = price;
+		this.price = price;
 	}
 
 
 	public String getCategoryID() {
-		return CategoryID;
+		return categoryID;
 	}
 
 	public void setCategoryID(String categoryID) {
-		CategoryID = categoryID;
+		this.categoryID = categoryID;
 	}
 
 
 	public String getSupplierID() {
-		return SupplierID;
+		return supplierID;
 	}
 
 	public void setSupplierID(String supplierID) {
-		SupplierID = supplierID;
+		this.supplierID = supplierID;
 	}
 
 
-	private String Description;
+	private String description;
 	
-	private String Price;
+	private String price;
 	@Column(name="category_id")
-	private String CategoryID;
+	private String categoryID;
 	@Column(name="supplier_id")
-	private String SupplierID;
+	private String supplierID;
 
 
 		
